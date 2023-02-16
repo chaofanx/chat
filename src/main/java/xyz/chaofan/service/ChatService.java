@@ -22,6 +22,7 @@ public class ChatService {
         .prompt(message)
         .model(model)
         .build();
+
     CompletionResult resp = openAiService.createCompletion(request);
     userService.reduce(openid);
     return resp.getChoices().get(0).getText();
