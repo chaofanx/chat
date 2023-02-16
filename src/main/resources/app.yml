@@ -9,7 +9,7 @@ solon:
   logging:
     appender:
       console:
-        level: TRACE
+        level: INFO
       file:
         name: "logs/${solon.app.name}"
         level: INFO
@@ -19,11 +19,11 @@ solon:
         level: INFO
     logger:
       "root": #默认记录器配置
-        level: TRACE
+        level: INFO
       "com.zaxxer.hikari":
         level: WARN
 # 配置数据源
-demo.db1:
+chat.db1:
   schema: chat
   jdbcUrl: jdbc:h2:file:./chat;MODE=MYSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;DATABASE_TO_UPPER=FALSE
   driverClassName: org.h2.Driver

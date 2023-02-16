@@ -5,10 +5,10 @@ build/
 !**/src/test/**/build/
 *.log
 *.db
+src/main/resources/token
 
 ### IntelliJ IDEA ###
 .idea
-!.idea/codeStyles
 *.iws
 *.iml
 *.ipr

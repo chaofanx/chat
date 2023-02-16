@@ -9,7 +9,7 @@ import org.noear.solon.annotation.Inject;
 @Configuration
 public class AppConfig {
   @Bean(value = "db1", typed = true)
-  public DataSource db1(@Inject("${demo.db1}") HikariDataSource ds) {
+  public DataSource db1(@Inject("${chat.db1}") HikariDataSource ds) {
     return ds;
   }
 }

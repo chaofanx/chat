@@ -14,7 +14,7 @@ public class ChatService {
   @Inject
   private UserService userService;
 
-  @Inject("${chat.model}")
+  @Inject("${app.model}")
   private String model;
 
   public String complete(String message, String openid) {

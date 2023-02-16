@@ -27,6 +27,13 @@ dependencies {
     implementation("com.theokanning.openai-gpt3-java:service:0.10.0")
 }
 
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+    options.compilerArgs = listOf(
+        "-parameters",
+    )
+}
+
 tasks.jar {
     manifest {
         attributes(

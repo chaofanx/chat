@@ -1,4 +1,4 @@
-package xyz.chaofan;
+package xyz.chaofan.controller;
 
 import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Inject;
