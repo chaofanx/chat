@@ -22,4 +22,22 @@ solon:
         level: TRACE
       "com.zaxxer.hikari":
         level: WARN
+# 配置数据源
+demo.db1:
+  schema: chat
+  jdbcUrl: jdbc:h2:file:./chat;MODE=MYSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;DATABASE_TO_UPPER=FALSE
+  driverClassName: org.h2.Driver
 
+# 配置数据源对应的 mybatis 信息（要与 DataSource bean 的名字对上）
+mybatis.db1:
+  mappers:        #支持包名 或 类名（.class 结尾）或 xml（.xml结尾）
+    - "xyz.chaofan.mapper"
+  configuration:  #扩展配置（要与 MybatisConfiguration 类的属性一一对应）
+    cacheEnabled: false
+    mapUnderscoreToCamelCase: true
+  globalConfig:   #全局配置（要与 GlobalConfig 类的属性一一对应）
+    banner: false
+
+app:
+  url: https://api.openai.com/v1/
+  model: text-davinci-003
