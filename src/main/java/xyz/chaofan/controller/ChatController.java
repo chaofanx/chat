@@ -7,6 +7,8 @@ import org.noear.solon.annotation.Inject;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.annotation.Post;
 import xyz.chaofan.entity.request.ChatRequest;
+import xyz.chaofan.entity.request.GPTRequestInfo;
+import xyz.chaofan.service.APIKeyService;
 import xyz.chaofan.service.ChatService;
 
 @Controller
@@ -14,12 +16,20 @@ import xyz.chaofan.service.ChatService;
 public class ChatController {
 
   @Inject
+  private APIKeyService keyService;
+
+  @Inject
   private ChatService chatService;
 
   @Post
   @Mapping("/complete")
   public SaResult complete(ChatRequest request) {
-    StpUtil.checkLogin();
-    return SaResult.ok(chatService.complete(request.getMessage(), request.getOpenid()));
+    GPTRequestInfo gptRequestInfo = new GPTRequestInfo(request.getMessage(), keyService.requestKey(request.getOpenid()));
+    try {
+      SaResult.ok(chatService.requestCompletions(gptRequestInfo,request.getOpenid()));
+    }catch (Exception e){
+      return SaResult.error(e.getMessage());
+    }
+    return null;
   }
 }

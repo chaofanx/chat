@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @TableName("chat_user")
 
@@ -61,4 +63,8 @@ public class User {
    * 使用次数
    */
   private long token;
+  /**
+   * 权益到期时间
+   */
+  private Date upgrade;
 }
