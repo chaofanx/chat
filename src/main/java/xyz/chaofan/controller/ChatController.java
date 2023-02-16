@@ -1,11 +1,12 @@
 package xyz.chaofan.controller;
 
+import cn.dev33.satoken.stp.StpUtil;
+import cn.dev33.satoken.util.SaResult;
 import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Inject;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.annotation.Post;
 import xyz.chaofan.entity.request.ChatRequest;
-import xyz.chaofan.entity.response.Wrapper;
 import xyz.chaofan.service.ChatService;
 
 @Controller
@@ -17,7 +18,8 @@ public class ChatController {
 
   @Post
   @Mapping("/complete")
-  public Wrapper complete(ChatRequest request) {
-    return Wrapper.success(chatService.complete(request.getMessage(), request.getOpenid()));
+  public SaResult complete(ChatRequest request) {
+    StpUtil.checkLogin();
+    return SaResult.ok(chatService.complete(request.getMessage(), request.getOpenid()));
   }
 }
