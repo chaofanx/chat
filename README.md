@@ -1,6 +1,6 @@
 # chat
 
-![](https://img.shields.io/github/license/chaofanx/chat) ![](https://img.shields.io/github/stars/chaofanx/chat?style=social) ![](https://img.shields.io/github/forks/chaofanx/chat?style=social)
+![](https://img.shields.io/github/license/chaofanx/chat) ![](https://img.shields.io/github/actions/workflow/status/chaofanx/chat/gradle.yml?branch=master) ![](https://img.shields.io/github/stars/chaofanx/chat?style=social) ![](https://img.shields.io/github/forks/chaofanx/chat?style=social)
 
 ## Introduction
 This repository is a tool to manage the APIs and user records of ChatGPT.
