@@ -1,15 +1,25 @@
 package xyz.chaofan.service;
 
+import cn.dev33.satoken.stp.StpUtil;
+import org.apache.ibatis.solon.annotation.Db;
 import org.noear.solon.aspect.annotation.Service;
-import xyz.chaofan.entity.User;
+import xyz.chaofan.mapper.ApiKeyMapper;
+import xyz.chaofan.util.EncryptDecryptUtil;
 
 @Service
 public class APIKeyService {
+
+    @Db
+    private ApiKeyMapper apiKeyMapper;
+
+
     public String requestKey(String openid){
         //鉴权
 
         //获取一个api-key
+        String key = apiKeyMapper.selectList(null).get(0).getApikey();
 
-        return "key";
+        key = EncryptDecryptUtil.getInstance().decrypt(key);
+        return key;
     }
 }

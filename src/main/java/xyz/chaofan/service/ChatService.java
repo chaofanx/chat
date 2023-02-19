@@ -1,8 +1,6 @@
 package xyz.chaofan.service;
 
-import com.theokanning.openai.completion.CompletionRequest;
-import com.theokanning.openai.completion.CompletionResult;
-import com.theokanning.openai.service.OpenAiService;
+import cn.hutool.json.JSONUtil;
 import org.noear.solon.annotation.Inject;
 import org.noear.solon.aspect.annotation.Service;
 import xyz.chaofan.entity.User;
@@ -35,7 +33,9 @@ public class ChatService {
     while((message = bufferedReader.readLine()) != null){
       response.append(message);
     }
-    return response.toString();
+    String rsp = response.toString();
+    rsp = JSONUtil.parseObj(rsp).getByPath("$.choices[0].text", String.class);
+    return rsp;
   }
 
 }

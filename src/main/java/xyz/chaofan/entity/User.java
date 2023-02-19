@@ -66,5 +66,5 @@ public class User {
   /**
    * 权益到期时间
    */
-  private Date upgrade;
+  private long upgrade;
 }

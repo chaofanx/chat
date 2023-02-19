@@ -25,8 +25,7 @@ dependencies {
     implementation("com.zaxxer:HikariCP:5.0.1")
     compileOnly("org.projectlombok:lombok:1.18.26")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
-    runtimeOnly("com.h2database:h2:2.1.214")
-    implementation("com.theokanning.openai-gpt3-java:service:0.10.0")
+    implementation("mysql:mysql-connector-java:8.0.32")
 
 }
 

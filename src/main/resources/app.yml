@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9003
 
 solon.app:
   name: chat
@@ -24,9 +24,11 @@ solon:
         level: WARN
 # 配置数据源
 chat.db1:
-  schema: chat
-  jdbcUrl: jdbc:h2:file:./chat;MODE=MYSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;DATABASE_TO_UPPER=FALSE
-  driverClassName: org.h2.Driver
+  schema: openai
+  jdbcUrl: jdbc:mysql://sh-cynosdbmysql-grp-bq9028ey.sql.tencentcdb.com:26830/openai
+  driverClassName: com.mysql.cj.jdbc.Driver
+  username: root
+  password: S-s-1529001512
 
 # 配置数据源对应的 mybatis 信息（要与 DataSource bean 的名字对上）
 mybatis.db1:

@@ -23,10 +23,10 @@ public class ApiAcessor {
 
 
         JSONObject requestBody = new JSONObject();
-        requestBody.put("model",requestInfo.getModel());
-        requestBody.put("prompt", requestInfo.getMessage());
-        requestBody.put("max_tokens", requestInfo.getMaxToken());
-        requestBody.put("stream",requestInfo.getStream());
+        requestBody.set("model",requestInfo.getModel());
+        requestBody.set("prompt", requestInfo.getMessage());
+        requestBody.set("max_tokens", requestInfo.getMaxToken());
+        requestBody.set("stream",requestInfo.getStream());
 
         conn.getOutputStream().write(requestBody.toString().getBytes());
         BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));

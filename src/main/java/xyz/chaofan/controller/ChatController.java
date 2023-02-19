@@ -26,10 +26,10 @@ public class ChatController {
   public SaResult complete(ChatRequest request) {
     GPTRequestInfo gptRequestInfo = new GPTRequestInfo(request.getMessage(), keyService.requestKey(request.getOpenid()));
     try {
-      SaResult.ok(chatService.requestCompletions(gptRequestInfo,request.getOpenid()));
+      return SaResult.data(chatService.requestCompletions(gptRequestInfo,request.getOpenid()));
     }catch (Exception e){
+      e.printStackTrace();
       return SaResult.error(e.getMessage());
     }
-    return null;
   }
 }
