@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class User {
   @TableId(type = IdType.ASSIGN_ID)
-  private long id;
+  private long id = 0;
 
   /**
    * 微信用户openid

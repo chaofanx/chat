@@ -11,7 +11,7 @@ public class Conversation {
      * 关联的用户id
      */
     @Getter
-    private long id;
+    private final long id;
 
     private StringBuilder history = new StringBuilder();
 

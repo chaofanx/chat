@@ -43,9 +43,14 @@ tasks.jar {
             "Class-Path" to configurations.compileClasspath.get().joinToString(" ") { it.name }
         )
     }
-    from(configurations.compileClasspath.get()) {
-        into("lib")
-    }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from(configurations.runtimeClasspath.get().map {
+        if (it.isDirectory) it else zipTree(it)
+    })
+    val sourcesMain = sourceSets.main.get()
+    sourcesMain.allSource.forEach { println("add from sources: ${it.name}") }
+    from(sourcesMain.output)
 }
 
 application {
