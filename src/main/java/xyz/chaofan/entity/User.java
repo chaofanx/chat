@@ -5,14 +5,11 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
 @TableName("chat_user")
-
 public class User {
   @TableId(type = IdType.ASSIGN_ID)
-  private long id = 0;
+  private Long id = 0L;
 
   /**
    * 微信用户openid
@@ -63,6 +60,7 @@ public class User {
    * 使用次数
    */
   private long token;
+
   /**
    * 权益到期时间
    */

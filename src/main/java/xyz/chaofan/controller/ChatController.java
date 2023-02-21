@@ -3,9 +3,11 @@ package xyz.chaofan.controller;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
 import org.noear.solon.annotation.Controller;
+import org.noear.solon.annotation.Delete;
 import org.noear.solon.annotation.Inject;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.annotation.Post;
+import xyz.chaofan.entity.User;
 import xyz.chaofan.entity.request.ChatRequest;
 import xyz.chaofan.entity.request.GPTRequestInfo;
 import xyz.chaofan.service.APIKeyService;
@@ -25,12 +27,20 @@ public class ChatController {
   @Mapping("/complete")
   public SaResult complete(ChatRequest request) {
     StpUtil.checkLogin();
-    GPTRequestInfo gptRequestInfo = new GPTRequestInfo(request.getMessage(), keyService.requestKey(request.getOpenid()));
+    GPTRequestInfo gptRequestInfo = new GPTRequestInfo(request.getMessage(), keyService.requestKey(request.getUser().getId()));
     try {
-      return SaResult.data(chatService.requestCompletions(gptRequestInfo,request.getOpenid()));
+      return SaResult.data(chatService.complete(gptRequestInfo,request.getUser()));
     }catch (Exception e){
       e.printStackTrace();
       return SaResult.error(e.getMessage());
     }
+  }
+
+  @Delete
+  @Mapping("/clear")
+  public SaResult clear(User user) {
+    StpUtil.checkLogin();
+    chatService.clear(user.getId());
+    return SaResult.ok();
   }
 }

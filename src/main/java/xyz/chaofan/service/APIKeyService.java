@@ -13,9 +13,10 @@ public class APIKeyService {
     private ApiKeyMapper apiKeyMapper;
 
 
-    public String requestKey(String openid){
+    public String requestKey(Long id){
         //鉴权
-
+        StpUtil.checkLogin();
+        StpUtil.checkPermission("admin");
         //获取一个api-key
         String key = apiKeyMapper.selectList(null).get(0).getApikey();
 

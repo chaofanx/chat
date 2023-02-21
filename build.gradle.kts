@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("org.noear:solon-parent:2.1.3"))
+    implementation(platform("org.noear:solon-parent:2.1.4"))
     implementation("org.noear:solon-api") {
         exclude(group = "org.noear", module = "solon.boot.jlhttp")
     }
@@ -26,7 +26,6 @@ dependencies {
     compileOnly("org.projectlombok:lombok:1.18.26")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
     implementation("mysql:mysql-connector-java:8.0.32")
-
 }
 
 tasks.withType<JavaCompile> {

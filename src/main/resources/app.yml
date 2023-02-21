@@ -44,5 +44,3 @@ app:
   openai:
     url: https://api.openai.com/v1/completions
     model: text-davinci-003
-  url: https://api.openai.com/v1/
-  model: text-davinci-003

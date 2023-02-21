@@ -24,8 +24,8 @@ public class UserService {
   }
 
   @Tran
-  public int reduce(String openid) {
-    List<User> user = userMapper.selectByMap(Collections.singletonMap("openid", openid));
+  public int reduce(Long openid) {
+    List<User> user = userMapper.selectByMap(Collections.singletonMap("id", openid));
     if (user.size() == 0) {
       throw new NoSuchUserException("please register first");
     }
