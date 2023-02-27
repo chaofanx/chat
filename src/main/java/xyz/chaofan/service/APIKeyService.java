@@ -18,7 +18,7 @@ public class APIKeyService {
         StpUtil.checkLogin();
         StpUtil.checkPermission("admin");
         //获取一个api-key
-        String key = apiKeyMapper.selectList(null).get(0).getApikey();
+        var key = apiKeyMapper.selectList(null).get(0).getApikey();
 
         key = EncryptDecryptUtil.getInstance().decrypt(key);
         return key;

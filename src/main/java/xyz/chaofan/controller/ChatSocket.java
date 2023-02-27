@@ -20,7 +20,7 @@ public class ChatSocket implements Listener {
 
   @Override
   public void onOpen(Session session) {
-    String id = session.param("id");
+    var id = session.param("id");
     sessions.put(id, session);
     Listener.super.onOpen(session);
   }
@@ -28,7 +28,7 @@ public class ChatSocket implements Listener {
   @Override
   public void onMessage(Session session, Message message) throws IOException {
     //message.setHandled(true); //设为true，则不进入mvc路由
-    String msg = message.bodyAsString();
+    var msg = message.bodyAsString();
     session.send("我收到了：" + message.bodyAsString());
 
     //接收二进制

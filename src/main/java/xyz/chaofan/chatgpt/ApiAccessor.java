@@ -20,7 +20,7 @@ public class ApiAccessor {
    * 通过stream字段设置是否使用流式传输
    */
   public BufferedReader complete(GPTRequestInfo requestInfo) {
-    try (HttpResponse request = HttpUtil.createPost(url)
+    try (var request = HttpUtil.createPost(url)
         .bearerAuth(requestInfo.getApiKey())
         .body(JSONUtil.createObj()
             .set("model", requestInfo.getModel())
@@ -32,7 +32,7 @@ public class ApiAccessor {
       if (!requestInfo.getStream()) {
         request.sync();
       }
-      InputStream in = request.bodyStream();
+      var in = request.bodyStream();
       return new BufferedReader(new InputStreamReader(in));
     }
   }

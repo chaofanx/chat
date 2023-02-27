@@ -27,7 +27,7 @@ public class ChatController {
   @Mapping("/complete")
   public SaResult complete(ChatRequest request) {
     StpUtil.checkLogin();
-    GPTRequestInfo gptRequestInfo = new GPTRequestInfo(request.getMessage(), keyService.requestKey(request.getUser().getId()));
+    var gptRequestInfo = new GPTRequestInfo(request.getMessage(), keyService.requestKey(request.getUser().getId()));
     try {
       return SaResult.data(chatService.complete(gptRequestInfo,request.getUser()));
     }catch (Exception e){

@@ -47,9 +47,9 @@ public class ChatService {
   public String complete(GPTRequestInfo requestInfo, User user) throws Exception{
     try (BufferedReader bufferedReader = apiAccessor.complete(requestInfo)) {
       userService.reduce(user.getId());
-      String message = IoUtil.read(bufferedReader);
+      var message = IoUtil.read(bufferedReader);
       message = JSONUtil.parseObj(message).getByPath("$.choices[0].text", String.class);
-      String finalMessage = message;
+      var finalMessage = message;
       history.compute(user.getId(), (k, v) -> {
         if (v == null) {
           v = Conversation.newChat(user.getId());
