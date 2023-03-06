@@ -21,7 +21,7 @@ dependencies {
     implementation("org.noear:mybatis-plus-solon-plugin")
     implementation("org.noear:solon.auth")
     implementation("org.noear:sa-token-solon-plugin")
-    implementation("cn.hutool:hutool-all:5.8.12")
+    implementation("cn.hutool:hutool-all:5.8.14")
     implementation("com.zaxxer:HikariCP:5.0.1")
     compileOnly("org.projectlombok:lombok:1.18.26")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
