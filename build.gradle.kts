@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("org.noear:solon-parent:2.1.4"))
+    implementation(platform("org.noear:solon-parent:2.2.3"))
     implementation("org.noear:solon-api") {
         exclude(group = "org.noear", module = "solon.boot.jlhttp")
     }
